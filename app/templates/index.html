@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	<div>
+		{% for post in posts %}
+			<p> {{ post.author }} says -</p><b>{{ post.body }}</b>
+		{% endfor %}
+	</div>
+{% endblock %}

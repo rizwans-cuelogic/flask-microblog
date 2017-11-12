@@ -1,0 +1,21 @@
+<html>
+	<head>
+		{% if title %}
+			<title>{{ title }} -Microblog</title>
+		{% else %}
+			<title>Welcome to Microblog</title>
+		{% endif %}
+	</head>
+
+	<body>
+		{% if user %}
+		<h1>hello, {{ user.username }}</h1>
+		{% endif %}
+		<div>
+			<a href="{{ url_for( 'index')}}">Home</a>
+		</div>
+		{% block body %}
+
+		{% endblock %}
+	</body>
+</html>

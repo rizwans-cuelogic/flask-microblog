@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	<h1>Sign in</h1>
+	<form action="" method="post" name="login">
+		{{ form.hidden_tag() }}
+		<p>
+			Please Enter Your Openid:<br>
+			{{ form.openid(size=80) }}<br>
+		</p>
+		<p> {{ form.remember_me }} Remember Me</p><br>
+		<p> <input type="submit" value="Sign in"></p>	
+	</form>
+{% endblock %}

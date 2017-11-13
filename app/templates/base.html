@@ -8,12 +8,21 @@
 	</head>
 
 	<body>
-		{% if user %}
-		<h1>hello, {{ user.username }}</h1>
-		{% endif %}
-		<div>
-			<a href="{{ url_for( 'index')}}">Home</a>
+		<div>Microblog : <a href="{{ url_for('index') }}">Home</a>
+			{% if current_user.is_authenticated %}
+				<a href="{{ url_for('addpost') }}">Add Post</a>
+				<a href="{{ url_for('logout') }}">Logout</a>
+			{% else %}
+				<a href="{{ url_for('login') }}">Login</a> 
+			{% endif %}
 		</div>
+		<hr>
+		{% if current_user.is_authenticated %}
+			<h1>Hi, {{ current_user.username }}</h1>
+		{% endif %}
+		{% for message in get_flashed_messages() %}
+			<li>{{ message }}</li>
+		{% endfor %}
 		{% block body %}
 
 		{% endblock %}
